@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fa80f69ce45fe65b4d266e6326b317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mouseDragAggression: 0.5
+  _mouseDragAggression: 0.3
 --- !u!50 &1001821472
 Rigidbody2D:
   serializedVersion: 4
