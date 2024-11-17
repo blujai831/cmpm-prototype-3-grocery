@@ -91,12 +91,21 @@ public class SpawnManage : MonoBehaviour
         // Determines a random number of groceries to spawn
         number_to_spawn();
 
+
+
+
         for (int i = 0; i < num_groceries_to_spawn; i++)
         {
             // Select a random grocery prefab
             int grocery_index = UnityEngine.Random.Range(0, groceryPrefabs.Length);
             // Instantiate the grocery at a fixed position with a default rotation
-            GameObject grocery = Instantiate(groceryPrefabs[grocery_index], new Vector2(-5.5f, 3.5f), Quaternion.identity);
+            Vector2 spawnPosition = new Vector2(-7.5f, 3.5f);
+            spawnPosition += new Vector2(UnityEngine.Random.Range(-0.1f, 0.1f), UnityEngine.Random.Range(-0.1f, 0.1f));
+            GameObject grocery = Instantiate(groceryPrefabs[grocery_index], spawnPosition, Quaternion.identity);
+
+            // Possible solution to items clumping together, message isaac for implementation ideas
+            //Rigidbody2D rb = grocery.GetComponent<Rigidbody2D>();
+            //rb.isKinematic = true;
         }
     }
 
@@ -104,7 +113,7 @@ public class SpawnManage : MonoBehaviour
     public bool CorrectlyOriented(GameObject barcode)
     {
         // Returns true if the barcode's rotation angle is close to 0 (horizontal) or 180 degrees
-        const float target = 0.1736;
+        const double target = 0.1736;
         return Math.Abs(Math.Sin(barcode.transform.rotation.eulerAngles.z * Math.PI / 180.0)) <= target; // margin of error: 10 degrees
         // Equation to calculate margin of error (if you want to change it): target = sin(margin you want in degrees)
     }
