@@ -111,6 +111,31 @@ public class SpawnManage : MonoBehaviour
 
             //Rigidbody2D rb = grocery.GetComponent<Rigidbody2D>();
             //rb.isKinematic = true;
+
+            // Alternative possible solution:
+            // Shapecast and move out of overlap
+
+            Collider2D collider = grocery.GetComponent<Collider2D>();
+            var filter = new ContactFilter2D();
+            filter.NoFilter();
+            var hits = new List<RaycastHit2D>();
+            for (;;) {
+                collider.Cast(Vector3.right, filter, hits);
+                bool any = false;
+                foreach (var hit in hits) {
+                    if (!hit.collider.isTrigger) {
+                        any = true;
+                        break;
+                    }
+                }
+                hits.Clear();
+                if (any) {
+                    grocery.transform.position += Vector3.right;
+                    Physics2D.SyncTransforms();
+                } else {
+                    break;
+                }
+            }
         }
     }
 
