@@ -37,6 +37,7 @@ public class Grocery : MonoBehaviour
     }
 
     void OnMouseDown() {
+
         _dragging = true;
         _positionClicked = transform.InverseTransformPoint(GetMousePosition());
     }

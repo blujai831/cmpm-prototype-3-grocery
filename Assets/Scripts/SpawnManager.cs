@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering; // to access SortingGroup
 using System;
 using TMPro;
 
@@ -91,17 +92,26 @@ public class SpawnManage : MonoBehaviour
         // Determines a random number of groceries to spawn
         number_to_spawn();
 
-
-
-
         for (int i = 0; i < num_groceries_to_spawn; i++)
         {
             // Select a random grocery prefab
             int grocery_index = UnityEngine.Random.Range(0, groceryPrefabs.Length);
             // Instantiate the grocery at a fixed position with a default rotation
-            Vector2 spawnPosition = new Vector2(-7.5f, 3.5f);
+            float zOffset = -0.1f * i; // Sets a small offset to each consecutive item spawned
+            Vector2 spawnPosition = new Vector3(-7.5f, 3.5f, zOffset);
             spawnPosition += new Vector2(UnityEngine.Random.Range(-0.1f, 0.1f), UnityEngine.Random.Range(-0.1f, 0.1f));
             GameObject grocery = Instantiate(groceryPrefabs[grocery_index], spawnPosition, Quaternion.identity);
+
+            // Apply Sorting Group settings
+            SortingGroup sortingGroup = grocery.GetComponent<SortingGroup>();
+            if (sortingGroup == null)
+            {
+                sortingGroup = grocery.AddComponent<SortingGroup>();
+            }
+
+            sortingGroup.sortingLayerName = "Grocery"; // Ensure the grocery layer is set correctly
+            sortingGroup.sortingOrder = i; // Increment order for stacking effect
+
 
             // Possible solution to items clumping together:
             // setting isKinematic to true makes the items not interact with each other physically. But it also prevents the user from clicking and dragging
@@ -126,6 +136,6 @@ public class SpawnManage : MonoBehaviour
     // Determines a random number of groceries to spawn for the next round
     void number_to_spawn()
     {
-        num_groceries_to_spawn = (int)UnityEngine.Random.Range(1, 4);
+        num_groceries_to_spawn = (int)UnityEngine.Random.Range(2, 4);
     }
 }

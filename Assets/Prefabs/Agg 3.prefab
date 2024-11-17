@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3848039080487391097}
   - component: {fileID: 236685321802365907}
   - component: {fileID: 4112844322445863136}
+  - component: {fileID: -5754383416665491094}
   m_Layer: 0
   m_Name: Agg 3
   m_TagString: Grocery
@@ -182,6 +183,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mouseDragAggression: 0.3
+--- !u!210 &-5754383416665491094
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607529857996197364}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &7156472048115164349
 GameObject:
   m_ObjectHideFlags: 0
