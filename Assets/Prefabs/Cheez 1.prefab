@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4112844322445863136}
   m_Layer: 0
   m_Name: Cheez 1
-  m_TagString: Untagged
+  m_TagString: Grocery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 4695159682642112114}
   m_Layer: 0
   m_Name: Barcode
-  m_TagString: Untagged
+  m_TagString: Barcode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
