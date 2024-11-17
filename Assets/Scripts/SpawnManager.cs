@@ -111,9 +111,9 @@ public class SpawnManage : MonoBehaviour
         return Math.Abs(Math.Sin(barcode.transform.rotation.eulerAngles.z * Math.PI / 180.0)) <= 0.125;
     }
 
-    // Determines a random number of groceries to spawn for the next round (either 1 or 2)
+    // Determines a random number of groceries to spawn for the next round
     void number_to_spawn()
     {
-        num_groceries_to_spawn = (int)UnityEngine.Random.Range(1, 3);
+        num_groceries_to_spawn = (int)UnityEngine.Random.Range(1, 4);
     }
 }
