@@ -103,7 +103,12 @@ public class SpawnManage : MonoBehaviour
             spawnPosition += new Vector2(UnityEngine.Random.Range(-0.1f, 0.1f), UnityEngine.Random.Range(-0.1f, 0.1f));
             GameObject grocery = Instantiate(groceryPrefabs[grocery_index], spawnPosition, Quaternion.identity);
 
-            // Possible solution to items clumping together, message isaac for implementation ideas
+            // Possible solution to items clumping together:
+            // setting isKinematic to true makes the items not interact with each other physically. But it also prevents the user from clicking and dragging
+            // items. Maybe we set them as kinematic and then un-kinematic them when the player wants to pick them up? Maybe we assign ordering to the items
+            // that are spawned and let the top item be un-kinematic and the rest kinematic, until the top item is picked up?
+            // for TLDR: message isaac for implementation ideas
+
             //Rigidbody2D rb = grocery.GetComponent<Rigidbody2D>();
             //rb.isKinematic = true;
         }
