@@ -121,11 +121,12 @@ public class SpawnManage : MonoBehaviour
 
             //Rigidbody2D rb = grocery.GetComponent<Rigidbody2D>();
             //rb.isKinematic = true;
+                // I think this is probably the way to go, but should be done in Grocery.cs, since that's where we detect mouse clicks. - Jaime
 
             // Alternative possible solution:
             // Shapecast and move out of overlap
 
-            Collider2D collider = grocery.GetComponent<Collider2D>();
+            /*Collider2D collider = grocery.GetComponent<Collider2D>();
             var filter = new ContactFilter2D();
             filter.NoFilter();
             var hits = new List<RaycastHit2D>();
@@ -145,7 +146,7 @@ public class SpawnManage : MonoBehaviour
                 } else {
                     break;
                 }
-            }
+            }*/
         }
     }
 

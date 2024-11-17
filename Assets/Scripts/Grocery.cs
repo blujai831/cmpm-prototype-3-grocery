@@ -9,6 +9,7 @@ public class Grocery : MonoBehaviour
     [SerializeField] private float _mouseDragAggression;
 
     private Rigidbody2D _rigidbody;
+    private Collider2D _collider;
     private bool _dragging;
     private Vector3 _positionClicked;
 
@@ -16,7 +17,10 @@ public class Grocery : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
         _dragging = false;
+        //_rigidbody.isKinematic = true;
+        _collider.isTrigger = true;
     }
 
     // Update is called once per frame
@@ -40,6 +44,8 @@ public class Grocery : MonoBehaviour
 
         _dragging = true;
         _positionClicked = transform.InverseTransformPoint(GetMousePosition());
+        //_rigidbody.isKinematic = false;
+        _collider.isTrigger = false;
     }
 
     void OnMouseUp() {
