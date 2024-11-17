@@ -15,6 +15,17 @@ public class SpawnManage : MonoBehaviour
     private int score; // The player's current score
     [SerializeField] private int num_groceries_to_spawn; // Number of groceries to spawn each round
     [SerializeField] HashSet<GameObject> barcodes_in_scanner = new HashSet<GameObject>(); // A set to store scanned barcodes in the scanner
+    [SerializeField] private AudioSource beepAudioSource1; // Reference to the AudioSource component
+    [SerializeField] private AudioSource beepAudioSource2; // Reference to the AudioSource component
+    private AudioSource[] audioSources;
+
+    void Awake()
+    {
+        // Initialize the array with references to the audio sources
+        audioSources = new AudioSource[] { beepAudioSource1, beepAudioSource2};
+    }
+
+
 
     // Initializes variables and spawns the initial grocery
     void Start()
@@ -61,6 +72,15 @@ public class SpawnManage : MonoBehaviour
         // If all spawned groceries are in the scanner, proceed to scan and score them
         if (barcodes_in_scanner.Count == num_groceries_to_spawn)
         {
+
+            // Play Sound Effect
+            int randomIndex = (int)UnityEngine.Random.Range(0, audioSources.Length);
+            if (audioSources[randomIndex] != null)
+            {
+                audioSources[randomIndex].Play();
+            }
+
+
             // List to store barcodes for destruction after scanning
             List<GameObject> barcodesToDestroy = new List<GameObject>();
 
@@ -121,7 +141,7 @@ public class SpawnManage : MonoBehaviour
 
             //Rigidbody2D rb = grocery.GetComponent<Rigidbody2D>();
             //rb.isKinematic = true;
-                // I think this is probably the way to go, but should be done in Grocery.cs, since that's where we detect mouse clicks. - Jaime
+            // I think this is probably the way to go, but should be done in Grocery.cs, since that's where we detect mouse clicks. - Jaime
 
             // Alternative possible solution:
             // Shapecast and move out of overlap
