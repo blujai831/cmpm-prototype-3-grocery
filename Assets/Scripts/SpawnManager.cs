@@ -7,7 +7,7 @@ using System;
 using TMPro;
 
 // This class manages the spawning and scanning of groceries in a game
-public class SpawnManage : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private Button scan_button; // Button to trigger scanning
     [SerializeField] private GameObject[] groceryPrefabs; // Array of grocery prefabs to spawn
@@ -183,5 +183,10 @@ public class SpawnManage : MonoBehaviour
     void number_to_spawn()
     {
         num_groceries_to_spawn = (int)UnityEngine.Random.Range(2, 4);
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 }
