@@ -1430,7 +1430,7 @@ Transform:
   m_GameObject: {fileID: 1617677499}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.07, y: -0.8, z: 1}
+  m_LocalPosition: {x: 3.07, y: -0.8, z: 0}
   m_LocalScale: {x: 6.15, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1462,6 +1462,7 @@ MonoBehaviour:
   - {fileID: 607529857996197364, guid: 47bfddce95adbc12f861a50822bb270d, type: 3}
   - {fileID: 607529857996197364, guid: 2d211b3a2c49d02419d589873a5b8861, type: 3}
   score_text: {fileID: 683605781}
+  timer: {fileID: 1545509031}
   num_groceries_to_spawn: 0
   beepAudioSource1: {fileID: 1578011013}
   beepAudioSource2: {fileID: 1754044622}
