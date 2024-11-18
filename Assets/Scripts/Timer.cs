@@ -57,4 +57,13 @@ public class Timer : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public float GetTimeRemaining()
+    {
+        return timeRemaining;
+    }
+
+    public void SetTimeRemaining(float timeSeconds){
+        timeRemaining = timeSeconds;
+    }
 }

@@ -13,6 +13,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject[] groceryPrefabs; // Array of grocery prefabs to spawn
     [SerializeField] private TMP_Text score_text; // Text to display the current score
     private int score; // The player's current score
+    [SerializeField] private Timer timer;
     [SerializeField] private int num_groceries_to_spawn; // Number of groceries to spawn each round
     [SerializeField] HashSet<GameObject> barcodes_in_scanner = new HashSet<GameObject>(); // A set to store scanned barcodes in the scanner
     [SerializeField] private AudioSource beepAudioSource1; // Reference to the AudioSource component
@@ -79,6 +80,9 @@ public class SpawnManager : MonoBehaviour
             {
                 audioSources[randomIndex].Play();
             }
+
+            // Add seconds to timer based on how many items were scanned
+            timer.SetTimeRemaining(timer.GetTimeRemaining() + (float)barcodes_in_scanner.Count * (float)2);
 
 
             // List to store barcodes for destruction after scanning
