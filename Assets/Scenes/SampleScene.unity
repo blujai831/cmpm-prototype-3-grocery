@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circleImage: {fileID: 2041476924}
-  totalTime: 20
+  totalTime: 30
   timeRemaining: 0
   playAgainButton: {fileID: 326204793}
   scanButton: {fileID: 754025769}
